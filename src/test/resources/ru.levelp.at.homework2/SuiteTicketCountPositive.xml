@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite Ticket counter positive">
+
+    <test name="Ticket counter positive tests pack">
+        <classes>
+            <class name="ru.levelp.at.homework2.TicketCountPositiveTest"/>
+        </classes>
+    </test>
+</suite>
