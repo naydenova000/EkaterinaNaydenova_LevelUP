@@ -4,6 +4,7 @@
     <test name="Ticket counter positive tests pack">
         <classes>
             <class name="ru.levelp.at.homework2.TicketCountPositiveTest"/>
+            <class name="ru.levelp.at.homework2.TicketCountParameterizedPositiveTest"/>
         </classes>
     </test>
 </suite>

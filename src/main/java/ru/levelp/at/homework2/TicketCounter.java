@@ -3,8 +3,8 @@ package ru.levelp.at.homework2;
 public class TicketCounter {
 
     /**
-     * Программа happyTicket принимает номер билета и складывает первые 3 числа с последними 3я числами
-     * и если сумма одинаковая, то билет считается счастливым
+     * Программа happyTicket принимает номер билета и складывает первые 3 числа с последними 3я числами.
+     * и если сумма одинаковая, то билет считается счастливым.
      */
     public boolean happyTicket(int ticketNumber) {
         var lengthTicketNumber = String.valueOf(ticketNumber).length();

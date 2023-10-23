@@ -1,11 +1,11 @@
 package ru.levelp.at.homework2;
 
-import org.testng.annotations.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.testng.annotations.Test;
+
 /**
- * TicketCountNegativeTest выполняет негативные тесты
+ * TicketCountNegativeTest выполняет негативные тесты.
  */
 public class TicketCountNegativeTest {
     @Test(description = "Negative. Entering a ticket number with one digit")

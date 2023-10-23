@@ -1,11 +1,11 @@
 package ru.levelp.at.homework2;
 
-import org.testng.annotations.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.testng.annotations.Test;
+
 /**
- * TicketCountPositiveTest выполняет позитивные тесты
+ * TicketCountPositiveTest выполняет позитивные тесты.
  */
 @SuppressWarnings("checkstyle:WhitespaceAround")
 public class TicketCountPositiveTest {

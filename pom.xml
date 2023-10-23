@@ -154,7 +154,10 @@
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <!--                    <encoding>${project.build.sourceEncoding}</encoding>-->
+                    <configLocation>
+                        <!--  pay attention to use exact url for checkstyle plugin ruleset  -->
+                        https://raw.githubusercontent.com/khda91/leveup-code-checkers-configurations/main/checkstyle/checkstyle.xml
+                    </configLocation>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
                     <violationSeverity>warning</violationSeverity>
                     <consoleOutput>true</consoleOutput>
