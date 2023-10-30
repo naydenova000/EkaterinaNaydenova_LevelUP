@@ -28,6 +28,7 @@
         <maven-checkstyle-plugin.version>3.2.0</maven-checkstyle-plugin.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
+        <selenium-devtools-v117.version>4.14.0</selenium-devtools-v117.version>
     </properties>
 
     <profiles>
@@ -63,6 +64,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
         </dependency>
+
 
 
         <dependency>
@@ -127,6 +129,12 @@
                 <groupId>com.github.javafaker</groupId>
                 <artifactId>javafaker</artifactId>
                 <version>${javafaker.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-devtools-v117</artifactId>
+                <version>${selenium-devtools-v117.version}</version>
             </dependency>
 
         </dependencies>
