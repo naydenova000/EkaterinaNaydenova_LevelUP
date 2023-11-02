@@ -74,21 +74,13 @@ public class MailEmailTest {
         buttonSend.click();
         SleepUtils.sleep(1000);
 
-        //TODO не понятно как найти кнопку крестик!
-        var closeWindow = driver.findElement(By.name("Закрыть"));
+        var closeWindow = driver.findElement(By.cssSelector("[data-highlighted-class='button2_highlighted'].button2_close"));
         closeWindow.click();
 
-
-//       var draft = driver.findElement(By.xpath("//span[@data-highlighted-class='button2_highlighted']"));
-//       draft.click();
-//        assertTrue(driver.findElement(By.xpath("//a[@class='GymhcKf']")).getText().
-//                         contains("Письмо отправлено"));
-
-        SleepUtils.sleep(2000);
-
-
-        // Проверка verify
-
+        driver.navigate().to("https://e.mail.ru/drafts/");
+        SleepUtils.sleep(1000);
+        assertTrue(driver.findElement(By.xpath("//span[@class='octopus__title octopus__title_with-subtitle']")).getText().
+                         contains("Папка «Черновики» пуста"));
     }
 
     @Test
@@ -108,12 +100,23 @@ public class MailEmailTest {
         inputTopic.sendKeys("Тест");
 
         var bodyEmail = driver.findElement(By.cssSelector(".cke_contents_true"));
-        bodyEmail.sendKeys("Тест Тест Тест");
+        bodyEmail.sendKeys("Test");
 
         var buttonSend = driver.findElement(By.xpath("//*[@data-test-id='send']"));
         buttonSend.click();
+        SleepUtils.sleep(1000);
 
-        // Проверка verify
+        driver.navigate().to("https://e.mail.ru/sent/");
+        SleepUtils.sleep(1000);
+        assertTrue(driver.findElement(
+            By.xpath("//h6[@class='base-0-2-1 h6-0-2-8 auto-0-2-26']")).getText().contains("Сегодня"));
+
+        driver.navigate().to("https://e.mail.ru/1/");
+        SleepUtils.sleep(1000);
+        assertTrue(driver.findElement(
+            By.xpath("//h6[@class='base-0-2-1 h6-0-2-8 auto-0-2-26']")).getText().contains("Сегодня"));
+
+        //Verify контент, адресата и тему письма (должно совпадать с пунктом 3)
     }
 
 
@@ -131,17 +134,16 @@ public class MailEmailTest {
         var inputTopic = driver.findElement(By.xpath("//div[@class='container--3QXHv']"
             + "/div[@class='inputContainer--nsqFu']"
             + "/input[@class='container--H9L5q size_s--3_M-_']"));
-        inputTopic.sendKeys("На удаление");
+        inputTopic.sendKeys("Test");
 
         var bodyEmail = driver.findElement(By.cssSelector(".cke_contents_true"));
-        bodyEmail.sendKeys("Тест Тест Тест");
+        bodyEmail.sendKeys("Test");
 
         var buttonSend = driver.findElement(By.xpath("//*[@data-test-id='send']"));
         buttonSend.click();
+        SleepUtils.sleep(1000);
 
         // Проверка verify
-
-//        var openEmail = driver.findElement(By.xpath(""))
 
 
     }
