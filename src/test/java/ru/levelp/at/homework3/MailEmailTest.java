@@ -7,6 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.levelp.at.homework3.utils.SleepUtils;
+import java.time.format.DateTimeFormatter;
+
+import static org.testng.Assert.assertTrue;
 
 public class MailEmailTest {
     public static final String MAIL_URL = "https://account.mail.ru/login";
@@ -31,7 +34,6 @@ public class MailEmailTest {
         buttonSingIn.click();
     }
 
-
     @Test
     void testCreateEmail(){
         SleepUtils.sleep(3000);
@@ -47,23 +49,43 @@ public class MailEmailTest {
             + "/input[@class='container--H9L5q size_s--3_M-_']"));
         inputTopic.sendKeys("Test");
 
-
         // TODO через xpath не вышло найти поле для ввода тела, пришлось искать через css
         var bodyEmail = driver.findElement(By.cssSelector(".cke_contents_true"));
-//        var bodyEmail = driver.findElement(By.xpath("//div[@class='editor_container--3Rj-8']"
-//            + "/div[@class='container--2Rl8H']"
-//            + "/div[@class='editor-82pv']"
-//            + "/div[@class='editable-container-82pv']"
-//            + "/div[@class='editable-82pv cke_editable cke_editable_inline cke_contents_true']"));
         bodyEmail.sendKeys("Test");
 
         var buttonSave = driver.findElement(By.xpath("//*[@data-test-id='save']"));
         buttonSave.click();
+        SleepUtils.sleep(2500);
 
-        // Проверка verify
+        var notifyMessage = driver.findElement(By.xpath("//span[@class='notify__message__text']"))
+                                  .getText();
+
+        java.time.LocalTime currentTime = java.time.LocalTime.now();
+        var time = currentTime.format(DateTimeFormatter.ofPattern("HH:mm"));
+
+        assertTrue(notifyMessage.contains("Сохранено в черновиках в " + time));
+        assertTrue(driver.findElement(By.xpath("//*[@data-test-id='underlay-wrapper']"))
+                         .getText().contains("naydenovae96@mail.ru"));
+//        assertTrue(driver.findElement(By.xpath("//div[@class='inputContainer--nsqFu']"));
+//                         .getText().contains("Test"));
+        assertTrue(bodyEmail.getText().contains("Test"));
 
         var buttonSend = driver.findElement(By.xpath("//*[@data-test-id='send']"));
         buttonSend.click();
+        SleepUtils.sleep(1000);
+
+        //TODO не понятно как найти кнопку крестик!
+        var closeWindow = driver.findElement(By.name("Закрыть"));
+        closeWindow.click();
+
+
+//       var draft = driver.findElement(By.xpath("//span[@data-highlighted-class='button2_highlighted']"));
+//       draft.click();
+//        assertTrue(driver.findElement(By.xpath("//a[@class='GymhcKf']")).getText().
+//                         contains("Письмо отправлено"));
+
+        SleepUtils.sleep(2000);
+
 
         // Проверка verify
 
