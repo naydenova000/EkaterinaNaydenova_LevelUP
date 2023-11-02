@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite Ticket counter negative test">
+
+    <test name="Ticket counter negative tests pack">
+        <classes>
+            <class name="ru.levelp.at.homework2.TicketCountNegativeTest"/>
+            <class name="ru.levelp.at.homework2.TicketCountParameterizedNegativeTest"/>
+        </classes>
+    </test>
+</suite>
